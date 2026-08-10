@@ -1,0 +1,757 @@
+/* =====================================================
+   UNIVALIDATOR PREMIUM CSS
+   Completo e corrigido
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --verde:#00D26A;
+    --verde-hover:#00b85d;
+    --verde-claro:#3dff9f;
+
+    --preto:#050505;
+    --card:#111111;
+    --card2:#181818;
+
+    --borda:#292929;
+
+    --texto:#ffffff;
+    --texto2:#bdbdbd;
+
+    --erro:#ff4d4d;
+    --aviso:#ffc107;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:var(--preto);
+    color:var(--texto);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    padding:40px 20px;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* Fundo */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at top left, rgba(0,210,106,.20), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(0,210,106,.10), transparent 35%);
+    z-index:-3;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+    background-size:40px 40px;
+    z-index:-2;
+}
+
+.container{
+    width:100%;
+    max-width:920px;
+}
+
+/* ========================= HEADER ========================= */
+
+.header{
+    background:rgba(17,17,17,.95);
+    border:1px solid rgba(0,210,106,.15);
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    margin-bottom:30px;
+    position:relative;
+    overflow:hidden;
+    backdrop-filter:blur(10px);
+    box-shadow:0 10px 35px rgba(0,210,106,.08);
+    transition:.35s;
+}
+
+.header::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:linear-gradient(90deg, var(--verde), var(--verde-claro), var(--verde));
+}
+
+.logo-uni{
+    color:var(--verde);
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.logo-validator{
+    color:white;
+    font-weight:300;
+}
+
+.header h1{
+    font-size:52px;
+    animation:logoEntrada .8s ease;
+}
+
+.subtitulo{
+    color:var(--verde);
+    margin-top:12px;
+    font-size:18px;
+    font-weight:700;
+}
+
+.descricao{
+    color:var(--texto2);
+    margin-top:15px;
+    line-height:1.7;
+    max-width:700px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* ========================= FORMULÁRIO ========================= */
+
+.form-card{
+    background:rgba(17,17,17,.96);
+    border:1px solid rgba(0,210,106,.15);
+    border-radius:20px;
+    padding:30px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 10px 30px rgba(0,210,106,.08);
+    margin-bottom:25px;
+    transition:.35s;
+    animation:fadeCard .6s ease;
+}
+
+.form-card::before{
+    content:"";
+    display:block;
+    width:70px;
+    height:4px;
+    background:var(--verde);
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+.form-card label{
+    display:block;
+    margin-top:18px;
+    margin-bottom:8px;
+    color:#d9d9d9;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:.3px;
+}
+
+select,
+textarea{
+    width:100%;
+    border:none;
+    outline:none;
+    background:#1b1b1b;
+    border:1px solid #2b2b2b;
+    color:white;
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:15px;
+    transition:.25s;
+}
+
+select{
+    cursor:pointer;
+}
+
+textarea{
+    resize:vertical;
+    min-height:220px;
+    line-height:1.6;
+}
+
+select:hover,
+textarea:hover{
+    border-color:#3d3d3d;
+}
+
+select:focus,
+textarea:focus{
+    border-color:var(--verde);
+    box-shadow:
+        0 0 0 4px rgba(0,210,106,.12),
+        0 0 18px rgba(0,210,106,.15);
+}
+
+textarea::placeholder{
+    color:#777;
+}
+
+/* ========================= BOTÕES PRINCIPAIS ========================= */
+
+.botoes{
+    display:flex;
+    gap:15px;
+    margin-top:25px;
+    width:100%;
+}
+
+.botoes button{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:55px;
+    margin:0;
+    padding:0 16px;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:all .25s ease;
+    letter-spacing:.3px;
+}
+
+/* VALIDAR - verde claro */
+#btnValidar{
+    background:linear-gradient(90deg, #00E88A, #3dff9f);
+    color:#000;
+}
+
+#btnValidar:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,232,138,.40);
+}
+
+#btnValidar:active{
+    transform:scale(.98);
+}
+
+/* SUGESTÕES - verde mais escuro */
+#btnSugestoes{
+    background:linear-gradient(90deg, #00B85D, #00A853);
+    color:#000;
+}
+
+#btnSugestoes:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,184,93,.40);
+    background:linear-gradient(90deg, #00A853, #00994A);
+}
+
+#btnSugestoes:active{
+    transform:scale(.98);
+}
+
+button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none !important;
+    box-shadow:none !important;
+}
+
+/* ========================= RESULTADOS ========================= */
+
+.resultado-card{
+    background:rgba(17,17,17,.96);
+    border:1px solid rgba(0,210,106,.15);
+    border-radius:20px;
+    padding:30px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 15px 35px rgba(0,210,106,.08);
+    animation:fadeUp .5s ease;
+    transition:.35s;
+}
+
+.oculto{
+    display:none;
+}
+
+.resultado-topo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:25px;
+    flex-wrap:wrap;
+    padding-bottom:25px;
+    border-bottom:1px solid #262626;
+    margin-bottom:25px;
+}
+
+.metrica{
+    flex:1;
+}
+
+.metrica-label{
+    display:block;
+    font-size:13px;
+    color:#9e9e9e;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:10px;
+}
+
+.nota{
+    font-size:70px;
+    font-weight:900;
+    color:var(--verde);
+    text-shadow:0 0 15px rgba(0,210,106,.35);
+}
+
+.nota small{
+    font-size:20px;
+    color:#777;
+}
+
+/* Cores da nota */
+.nota-verde{
+    color:#00d26a;
+    text-shadow:0 0 12px rgba(0,210,106,.35);
+}
+
+.nota-amarela{
+    color:#ffc107;
+    text-shadow:0 0 12px rgba(255,193,7,.35);
+}
+
+.nota-vermelha{
+    color:#ff4d4f;
+    text-shadow:0 0 12px rgba(255,77,79,.35);
+}
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 22px;
+    border-radius:999px;
+    font-size:15px;
+    font-weight:700;
+}
+
+.status--baixo{
+    background:rgba(0,210,106,.18);
+    color:#5cffb0;
+    border:1px solid rgba(0,210,106,.25);
+}
+
+.status--medio{
+    background:rgba(255,193,7,.18);
+    color:#ffd95d;
+    border:1px solid rgba(255,193,7,.25);
+}
+
+.status--alto{
+    background:rgba(255,77,77,.18);
+    color:#ff8a8a;
+    border:1px solid rgba(255,77,77,.25);
+}
+
+.listas{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:20px;
+}
+
+.lista-bloco{
+    background:#181818;
+    border:1px solid #2d2d2d;
+    border-radius:16px;
+    padding:20px;
+    transition:.25s;
+    position:relative;
+    overflow:hidden;
+}
+
+.lista-bloco:hover{
+    transform:translateY(-4px);
+    border-color:rgba(0,210,106,.25);
+    box-shadow:0 10px 25px rgba(0,210,106,.08);
+}
+
+.lista-bloco::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:2px;
+    background:linear-gradient(90deg, transparent, var(--verde), transparent);
+    transition:.6s;
+}
+
+.lista-bloco:hover::before{
+    left:100%;
+}
+
+.lista-bloco h3{
+    margin-bottom:15px;
+    font-size:17px;
+    color:white;
+}
+
+.lista-bloco ul{
+    list-style:none;
+}
+
+.lista-bloco li{
+    background:#222;
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:10px;
+    font-size:14px;
+    line-height:1.5;
+    border-left:4px solid #555;
+    transition:.2s;
+}
+
+.lista-bloco li:hover{
+    background:#2a2a2a;
+}
+
+#listaAcertos li{
+    border-left-color:#00d26a;
+}
+
+#listaProblemas li{
+    border-left-color:#ff5252;
+}
+
+#listaSugestoes li{
+    border-left-color:#ffc107;
+}
+
+.lista-vazia{
+    color:#888;
+    background:transparent !important;
+    border:none !important;
+    padding:0 !important;
+    font-style:italic;
+}
+
+/* ========================= MODAL ========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.modal.oculto{
+    display:none;
+}
+
+.modal-conteudo{
+    width:90%;
+    max-width:900px;
+    max-height:90vh;
+    overflow:auto;
+    background:#111;
+    border:1px solid #00D26A;
+    border-radius:16px;
+    padding:30px;
+}
+
+.fechar{
+    float:right;
+    font-size:32px;
+    color:#fff;
+    cursor:pointer;
+}
+
+/* ========================= CARDS DAS MENSAGENS SUGERIDAS ========================= */
+
+.cardMensagem{
+    background:#181818;
+    border:1px solid #2a2a2a;
+    border-radius:12px;
+    padding:18px;
+    margin-top:18px;
+}
+
+.cardMensagem h3{
+    color:#00D26A;
+    margin-bottom:10px;
+}
+
+.cardMensagem textarea{
+    width:100%;
+    height:180px;
+    resize:none;
+    background:#101010;
+    color:#fff;
+    border:1px solid #2b2b2b;
+    border-radius:8px;
+    padding:12px;
+    margin-bottom:12px;
+}
+
+/* Linha com os botões "Copiar" e "Validar" lado a lado dentro do card */
+.card-botoes{
+    display:flex;
+    gap:12px;
+    margin-top:4px;
+}
+
+.card-botoes button{
+    flex:1;
+    height:46px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:none;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
+}
+
+/* Botão Copiar: verde sólido */
+.copiarMensagem{
+    background:var(--verde);
+    color:#000;
+}
+
+.copiarMensagem:hover{
+    background:var(--verde-hover);
+    transform:translateY(-2px);
+    box-shadow:0 6px 18px rgba(0,210,106,.35);
+}
+
+/* Botão Validar: gradiente, pra diferenciar visualmente do Copiar */
+.validarMensagem{
+    background:linear-gradient(90deg, #00E88A, #3dff9f);
+    color:#000;
+}
+
+.validarMensagem:hover{
+    background:linear-gradient(90deg, #00D67F, #2ee68f);
+    transform:translateY(-2px);
+    box-shadow:0 6px 18px rgba(0,232,138,.35);
+}
+
+/* ========================= LOADING (tela de carregamento) ========================= */
+
+.loading-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(5,5,5,.88);
+    backdrop-filter:blur(8px);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .3s ease, visibility .3s ease;
+}
+
+.loading-overlay.ativo{
+    opacity:1;
+    visibility:visible;
+}
+
+.loading-spinner{
+    width:56px;
+    height:56px;
+    border:4px solid rgba(0,210,106,.2);
+    border-top-color:var(--verde);
+    border-radius:50%;
+    animation:spin .8s linear infinite;
+    margin-bottom:22px;
+}
+
+.loading-texto{
+    color:var(--verde);
+    font-size:18px;
+    font-weight:600;
+    letter-spacing:.5px;
+}
+
+.loading-subtexto{
+    color:#999;
+    font-size:14px;
+    margin-top:8px;
+}
+
+@keyframes spin{
+    to{ transform:rotate(360deg); }
+}
+
+/* ========================= RODAPÉ ========================= */
+
+.footer{
+    margin-top:30px;
+    text-align:center;
+    color:#7b7b7b;
+    font-size:14px;
+    letter-spacing:.5px;
+    opacity:.8;
+    transition:.3s;
+}
+
+.footer:hover{
+    color:var(--verde);
+    opacity:1;
+}
+
+/* ========================= EFEITOS GERAIS ========================= */
+
+::selection{
+    background:var(--verde);
+    color:#000;
+}
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--verde);
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:var(--verde-hover);
+}
+
+.header:hover,
+.form-card:hover,
+.resultado-card:hover{
+    box-shadow:0 20px 45px rgba(0,210,106,.12);
+}
+
+/* ========================= ANIMAÇÕES ========================= */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes logoEntrada{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeCard{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ========================= RESPONSIVIDADE ========================= */
+
+@media(max-width:900px){
+    .container{
+        max-width:100%;
+    }
+}
+
+@media(max-width:768px){
+    body{
+        padding:20px 15px;
+    }
+
+    .header{
+        padding:25px;
+    }
+
+    .header h1{
+        font-size:38px;
+    }
+
+    .subtitulo{
+        font-size:16px;
+    }
+
+    .descricao{
+        font-size:14px;
+    }
+
+    .form-card,
+    .resultado-card{
+        padding:20px;
+    }
+
+    .resultado-topo{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .nota{
+        font-size:52px;
+    }
+
+    .listas{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:480px){
+    .header h1{
+        font-size:30px;
+    }
+
+    .nota{
+        font-size:42px;
+    }
+
+    .botoes{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .botoes button{
+        height:50px;
+        font-size:15px;
+    }
+
+    .card-botoes{
+        flex-direction:column;
+    }
+}

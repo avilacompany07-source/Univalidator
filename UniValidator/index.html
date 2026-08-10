@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UniValidator - Validador de Mensagens Institucionais</title>
+
+  <!-- Nosso arquivo de estilos -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <body>
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-texto">Validando...</div>
+</div>
+   
+
+    <!-- resto do seu site continua aqui -->
+
+  <div class="container">
+
+    <!-- ===== CABEÇALHO / LOGO ===== -->
+    <header class="header">
+      <h1><span class="logo-uni">UNI</span><span class="logo-validator">VALIDATOR</span></h1>
+      <p class="subtitulo">Validador de Mensagens Institucionais</p>
+      <p class="descricao">
+        Ferramenta interna para auxiliar setores da instituição na revisão
+        de mensagens enviadas por WhatsApp.
+      </p>
+    </header>
+
+    <!-- ===== FORMULÁRIO ===== -->
+    <section class="form-card">
+
+      <!-- Select de categoria -->
+      <label for="categoria">Categoria da mensagem</label>
+      <select id="categoria">
+        <option value="financeiro">Financeiro</option>
+        <option value="relacionamento">Relacionamento</option>
+        <option value="secretaria">Secretaria</option>
+        <option value="comercial">Comercial</option>
+        <option value="outros">Outros</option>
+      </select>
+
+      <!-- Textarea onde o usuário cola a mensagem -->
+      <label for="mensagem">Mensagem</label>
+      <textarea
+        id="mensagem"
+        rows="8"
+        placeholder="Cole aqui a mensagem que deseja validar..."
+      ></textarea>
+
+      <!-- Botão que dispara a validação -->
+<div class="botoes">
+    <button id="btnValidar">🔍 Validar</button>
+    <button id="btnSugestoes">💬 Sugestões</button>
+</div>    </section>
+
+    <!-- ===== RESULTADO (fica escondido até validar) ===== -->
+    <section id="resultado" class="resultado-card oculto">
+
+      <!-- Nota (Qualidade da comunicação) + Status (Risco de denúncia) -->
+      <div class="resultado-topo">
+        <div class="metrica">
+          <span class="metrica-label">Qualidade da comunicação</span>
+          <div class="nota">
+            <span id="notaValor">0</span>
+            <small>/ 100</small>
+          </div>
+        </div>
+        <div class="metrica">
+          <span class="metrica-label">Risco de denúncia</span>
+          <div id="statusRisco" class="status">
+            <!-- Ex: 🟢 Baixo risco -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Listas de acertos, problemas e sugestões -->
+      <div class="listas">
+
+        <div class="lista-bloco">
+          <h3>✅ Boas práticas institucionais</h3>
+          <ul id="listaAcertos"></ul>
+        </div>
+
+        <div class="lista-bloco">
+          <h3>⚠️ Problemas encontrados</h3>
+          <ul id="listaProblemas"></ul>
+        </div>
+
+        <div class="lista-bloco">
+          <h3>💡 Sugestões</h3>
+          <ul id="listaSugestoes"></ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer class="footer">
+      UniValidator • Uso interno Uniamérica
+    </footer>
+
+  </div>
+
+  <!--
+    type="module" permite usar import/export dentro do script.js.
+    Isso é o que nos deixa organizar as regras em arquivos separados
+    dentro da pasta /regras sem precisar de nenhum framework.
+  -->
+  <script type="module" src="script.js"></script>
+  <div id="modalSugestoes" class="modal oculto">
+
+    <div class="modal-conteudo">
+
+        <span id="fecharModal" class="fechar">&times;</span>
+
+        <h2>Biblioteca de Mensagens</h2>
+
+        <p>Escolha uma categoria.</p>
+
+<div id="listaMensagens"></div>
+    </div>
+
+</div>
+</body>
+</html>
